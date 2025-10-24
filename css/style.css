@@ -1,0 +1,57 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: black;
+}
+
+/* começo header  */
+
+header {
+    padding: 10px 0;
+    background-color: black;
+    position: relative;
+    display: flex;
+    justify-content: flex-start;
+}
+
+header::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #a50d1a, #fc3b00, #d10213);
+    pointer-events: none;
+}
+
+.logo {
+    width: 150px;
+    margin-left: 40px;
+}
+
+
+ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    margin-left: auto; /* empurra a lista para a direita dentro do header */
+    margin-right: 40px; /* alinha com a margem da logo */
+    align-items: center; /* centraliza os itens dentro da própria linha da lista */
+}
+
+/* estilo de lista (li) não é necessário no momento */
+
+a {
+    text-decoration: none;
+    color: #d10213;
+}
