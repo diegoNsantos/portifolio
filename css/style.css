@@ -98,12 +98,38 @@ li:hover {
 
 /* fim header  */
 
-p {
-    color: #d10213;
+.eusou {
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 h1 {
-
     color:#d10213 ;
+}
 
-} coloque o aqui
+h2 {
+    color: white;
+}
+
+/*
+---
+## Efeitos de Digitação (Typing Effect)
+---
+*/
+
+/* 1. Animação do Cursor Piscar */
+@keyframes blink {
+    50% {
+        opacity: 0; /* Torna o cursor invisível na metade da animação */
+    }
+}
+
+/* 2. Estilo do Cursor */
+#typing-cursor {
+    /* O cursor deve ter a mesma cor e tamanho da fonte do h2 */
+    color: white;
+    font-size: 1em; /* 1em em relação ao h2 */
+    font-weight: normal; 
+    /* Aplica a animação: 0.75s de duração, passos de função de tempo, infinito */
+    animation: blink 0.75s step-end infinite; 
+}
