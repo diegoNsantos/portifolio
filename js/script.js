@@ -5,7 +5,7 @@ const typingTextElement = document.querySelector('.typing-text');
 const cursor = document.getElementById('typing-cursor');
 
 // Array com os textos para alternar
-const textsToType = ["Desenvolvedor Front-End", "Desenvolvedor de Software"];
+const textsToType = ["Desenvolvedor Full-Stack", "Engenheiro de Software"];
 
 // Configurações de velocidade (em ms)
 const typingSpeed = 100;    // Velocidade de digitação

@@ -27,33 +27,33 @@ body {
 
 /* começo header  */
 header {
-    padding: 10px 0;
-    background-color: black;
-    display: flex;
-    position: relative;
-    
-
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  display: flex;
+  align-items: center; /* ou flex-start se quiser a ul no topo */
+  padding: 10px 40px; /* em vez de margens fixas nas children */
+  background-color: black;
 }
 
+/* pseudo-elemento para border-bottom degradê */
 header::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    height: 2px;
-    background: linear-gradient(90deg, #a50d1a, #fc3b00, #d10213);
-    pointer-events: none;
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #a50d1a, #fc3b00, #d10213);
+  pointer-events: none;
 }
 
 .logo {
     width: 150px;
     margin-left: 210px;
 }
-
-
-
-
 
 ul {
     list-style: none;
@@ -96,19 +96,28 @@ li:hover {
     transform: scale(1.4);
 }
 
-/* fim header  */
+                     /* fim header  */
+
+/* começo descriçõ  */
+
+.descricao {
+    margin-top: 150px;
+    margin-left: 210px;
+}
 
 .eusou {
     color: white;
-    font-family: Arial, Helvetica, sans-serif;
+    font-size: 30px;
 }
 
 h1 {
     color:#d10213 ;
+    font-size: 80px;
 }
 
 h2 {
     color: white;
+    font-size: 40px;
 }
 
 /*
@@ -132,4 +141,25 @@ h2 {
     font-weight: normal; 
     /* Aplica a animação: 0.75s de duração, passos de função de tempo, infinito */
     animation: blink 0.75s step-end infinite; 
+}
+
+
+.github {
+    width: 40px;
+    margin-top: 20px;
+    margin-left: 20px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.github:hover {
+    transform: scale(1.4);
+}
+
+.linkedin {
+    width: 40px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.linkedin:hover {
+    transform: scale(1.4);
 }
