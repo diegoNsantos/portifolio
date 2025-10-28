@@ -1,108 +1,98 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
-
-
-/* O resto do seu CSS vem abaixo... */
-
+/* =================================================================
+   1. RESET E ESTILOS GERAIS
+   ================================================================= */
 * {
-
-    margin: 0;
-
-    /* ... */
-
-}
-
-
-
-body {
     margin: 0;
     padding: 0;
-    height: 200vh;
-    box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: black;
+    box-sizing: border-box; /* Adicionado: Essencial para layout responsivo */
 }
 
+body {
+    height: 200vh; /* Mantido: Para testar o header fixo */
+    font-family: 'Roboto', Arial, Helvetica, sans-serif; /* Priorize a fonte do Google Fonts */
+    background-color: black;
+    color: white; /* Cor de texto padrão para o body */
+}
 
-
-/* começo header  */
+/* -----------------------------------------------------------------
+   2. NAVEGAÇÃO / HEADER
+   ----------------------------------------------------------------- */
 header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 1000;
-  display: flex;
-  align-items: center; /* ou flex-start se quiser a ul no topo */
-  padding: 10px 40px; /* em vez de margens fixas nas children */
-  background-color: black;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Ajustado: Para melhor espaçamento entre logo e nav */
+    padding: 10px 40px;
+    background-color: black;
 }
 
 /* pseudo-elemento para border-bottom degradê */
 header::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: 2px;
-  background: linear-gradient(90deg, #a50d1a, #fc3b00, #d10213);
-  pointer-events: none;
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #a50d1a, #fc3b00, #d10213);
+    pointer-events: none;
 }
 
 .logo {
     width: 150px;
-    margin-left: 210px;
+    /* Removido margin-left fixo: Usar padding do header e justify-content: space-between */
 }
 
-ul {
+nav ul {
     list-style: none;
     display: flex;
     gap: 20px;
-    margin-left: auto; /* empurra a lista para a direita dentro do header */
-    margin-right: 230px; /* alinha com a margem da logo */
-    align-items: center; /* centraliza os itens dentro da própria linha da lista */
-
+    align-items: center;
+    /* Removido margin-left: auto e margin-right fixo: Usar justify-content: space-between no header */
 }
 
-
-
-/* estilo de lista (li) não é necessário no momento */
-
-
-
+/* Estilo para links (geral) */
 a {
     text-decoration: none;
     color: #d10213;
-    /* Mantenha apenas uma declaração correta */
     font-family: "Roboto", sans-serif;
-    /* Defina um peso válido, se quiser (400 é o padrão, 700 é negrito) */
     font-weight: 700;
-    /* Remova as propriedades de fontes variáveis (font-optical-sizing, font-variation-settings)
-       e a duplicação do font-family. */
+    transition: color 0.3s ease-in-out; /* Adicionado: Transição de cor */
 }
 
 a:hover {
     color: #fc3b00;
-
 }
 
-li {
+/* Estilo de item da lista de navegação */
+nav li {
     list-style: none;
     transition: transform 0.3s ease-in-out;
 }
-
-li:hover {
-    transform: scale(1.4);
+nav li:hover {
+    transform: scale(1.1); /* Ajustado: De 1.4 para 1.1, menos agressivo */
 }
 
-                     /* fim header  */
-
-/* começo descriçõ  */
+/* -----------------------------------------------------------------
+   3. SEÇÃO PRINCIPAL / DESCRIÇÃO
+   ----------------------------------------------------------------- */
+.perfil {
+    width: 200px;
+    height: 200px;  
+    margin-bottom: 20px;
+}
 
 .descricao {
-    margin-top: 150px;
+    /* Padding-top para evitar que o conteúdo fique debaixo do header fixo */
+    padding-top: 150px;
     margin-left: 210px;
+    margin-top: 160px;
 }
 
 .eusou {
@@ -111,55 +101,84 @@ li:hover {
 }
 
 h1 {
-    color:#d10213 ;
+    color: #d10213;
     font-size: 80px;
+    margin-bottom: 10px; /* Adicionado: Espaçamento após o nome */
 }
 
 h2 {
     color: white;
     font-size: 40px;
+    margin-bottom: 20px; /* Adicionado: Espaçamento após o título */
 }
 
-/*
----
-## Efeitos de Digitação (Typing Effect)
----
-*/
-
-/* 1. Animação do Cursor Piscar */
+/* -----------------------------------------------------------------
+   4. EFEITOS DE DIGITAÇÃO (TYPING EFFECT)
+   ----------------------------------------------------------------- */
 @keyframes blink {
     50% {
-        opacity: 0; /* Torna o cursor invisível na metade da animação */
+        opacity: 0;
     }
 }
 
-/* 2. Estilo do Cursor */
 #typing-cursor {
-    /* O cursor deve ter a mesma cor e tamanho da fonte do h2 */
     color: white;
-    font-size: 1em; /* 1em em relação ao h2 */
-    font-weight: normal; 
-    /* Aplica a animação: 0.75s de duração, passos de função de tempo, infinito */
-    animation: blink 0.75s step-end infinite; 
+    font-size: 1em;
+    font-weight: normal;
+    animation: blink 0.75s step-end infinite;
 }
 
-
-.github {
-    width: 40px;
+/* -----------------------------------------------------------------
+   5. ÍCONES SOCIAIS
+   ----------------------------------------------------------------- */
+.social-links {
+    display: flex;
+    align-items: center;
+    gap: 20px; /* Espaçamento entre os ícones */
     margin-top: 20px;
-    margin-left: 20px;
-    transition: transform 0.3s ease-in-out;
 }
 
-.github:hover {
-    transform: scale(1.4);
-}
-
+.github,
 .linkedin {
     width: 40px;
     transition: transform 0.3s ease-in-out;
 }
 
+.github:hover,
 .linkedin:hover {
     transform: scale(1.4);
+}
+
+/* -----------------------------------------------------------------
+   6. skill
+   ----------------------------------------------------------------- */
+.skills {
+    margin-top: 300px;
+   
+}
+
+
+
+.skill-frontend {
+    display: flex;
+    gap: 40px;
+    margin-top: 30px;
+    margin-right: 1500px;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.1);  
+    border: #a50d1a 2px solid;
+    border-radius: 10px;
+   
+}
+
+h3 {
+    color: #d10213;
+    font-size: 36px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.imgskill {
+    width: 80px;
+    height: 80px;
 }
